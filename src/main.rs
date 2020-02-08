@@ -7,6 +7,8 @@ use i3ipc::{I3EventListener,Subscription,I3Connection};
 use i3ipc::event::{Event, inner::{WindowChange, ShutdownChange}};
 use i3ipc::reply::Node;
 
+mod cli;
+
 const RECONNECT_MAX_RETRIES: usize = 10;
 const RECONNECT_TIMEOUT_MILLIS: u64 = 200;
 const PADDING: i32 = 10;
@@ -104,6 +106,8 @@ fn listen_to_events(mut connection: I3Connection, mut listener: I3EventListener)
 }
 
 fn main() {
+    let _ = cli::build_app().get_matches();
+
     loop {
         let (connection, listener) = connect_to_i3();
         match listen_to_events(connection, listener) {

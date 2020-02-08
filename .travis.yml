@@ -1,8 +1,6 @@
 language: rust
 cache: cargo
 matrix:
-  # allow_failures:
-  #   - rust: nightly
   include:
     # Stable channel.
     - os: linux
@@ -42,14 +40,6 @@ matrix:
     - os: linux
       rust: 1.31.0
       env: TARGET=i686-unknown-linux-musl
-
-    # Code formatting check
-    # - os: linux
-    #   rust: nightly
-    #   # skip the global install step
-    #   install:
-    #     - cargo install --debug --force rustfmt-nightly
-    #   script: cargo fmt -- --check
 
 sudo: required
 
