@@ -2,11 +2,23 @@
 name = "i3-plasma"
 description = "An IPC addon for i3 to integrate it better with plasma"
 version = "0.1.0"
+build = "build.rs"
 authors = ["Callum Oz <acheronfail@gmail.com>"]
 edition = "2018"
+license = "MIT/Apache-2.0/UNLICENSE"
+readme = "README.md"
+homepage = "https://github.com/acheronfail/i3-plasma"
+repository = "https://github.com/acheronfail/i3-plasma"
+
+[build-dependencies]
+clap = "2.31.2"
 
 [dependencies.i3ipc]
 # TODO: https://github.com/tmerr/i3ipc-rs/pull/52
 git = "https://github.com/acheronfail/i3ipc-rs"
 branch = "feat/add-windowtype-to-node"
 features = ["i3-4-18"]
+
+[dependencies.clap]
+version = "2.31.2"
+features = ["suggestions", "color", "wrap_help"]
