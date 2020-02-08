@@ -25,6 +25,7 @@ sudo dpkg -i path/to/package.deb
 You can install _i3-plasma_ via this AUR: 
 -->
 
+<!-- TODO: wait for https://github.com/tmerr/i3ipc-rs/pull/52 then publish to crates
 ### From source
 
 With Rust's package manager [cargo], you can install _i3-plasma_ via:
@@ -32,6 +33,7 @@ With Rust's package manager [cargo], you can install _i3-plasma_ via:
 ```bash
 cargo install i3-plasma
 ```
+-->
 
 ## Usage
 
