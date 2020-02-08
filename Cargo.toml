@@ -1,0 +1,12 @@
+[package]
+name = "i3-plasma"
+description = "An IPC addon for i3 to integrate it better with plasma"
+version = "0.1.0"
+authors = ["Callum Oz <acheronfail@gmail.com>"]
+edition = "2018"
+
+[dependencies.i3ipc]
+# TODO: https://github.com/tmerr/i3ipc-rs/pull/52
+git = "https://github.com/acheronfail/i3ipc-rs"
+branch = "feat/add-windowtype-to-node"
+features = ["i3-4-18"]
