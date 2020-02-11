@@ -1,14 +1,14 @@
 [package]
-name = "i3-plasma"
+name = "i3-plasma-integration"
 description = "An IPC addon for i3 to integrate it better with plasma"
-version = "0.1.0"
+version = "0.2.0"
 build = "build.rs"
 authors = ["Callum Oz <acheronfail@gmail.com>"]
 edition = "2018"
 license = "MIT/Apache-2.0/UNLICENSE"
 readme = "README.md"
-homepage = "https://github.com/acheronfail/i3-plasma"
-repository = "https://github.com/acheronfail/i3-plasma"
+homepage = "https://github.com/acheronfail/i3-plasma-integration"
+repository = "https://github.com/acheronfail/i3-plasma-integration"
 
 [build-dependencies]
 clap = "2.31.2"

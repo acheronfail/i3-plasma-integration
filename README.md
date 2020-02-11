@@ -1,4 +1,4 @@
-# i3-plasma
+# i3-plasma-integration
 
 An IPC addon for i3 to integrate it better with plasma.
 
@@ -28,21 +28,21 @@ Once https://github.com/tmerr/i3ipc-rs/pull/52 is resolved and a new version of 
 <!-- TODO: wait for https://github.com/tmerr/i3ipc-rs/pull/52 then publish to crates
 ### From source
 
-With Rust's package manager [cargo], you can install _i3-plasma_ via:
+With Rust's package manager [cargo], you can install _i3-plasma-integration_ via:
 
 ```bash
-cargo install i3-plasma
+cargo install i3-plasma-integration
 ```
 -->
 
 ## Usage
 
-There are many ways to start `i3` and it varies per system. Usually, the simplest way of starting `i3-plasma` is just adding it into your `i3` config file:
+There are many ways to start `i3` and it varies per system. Usually, the simplest way of starting `i3-plasma-integration` is just adding it into your `i3` config file:
 
 ```bash
-exec i3-plasma
+exec i3-plasma-integration
 ```
 
-[releases]: https://github.com/acheronfail/i3-plasma/releases
+[releases]: https://github.com/acheronfail/i3-plasma-integration/releases
 [cargo]: https://github.com/rust-lang/cargo
-[PKGBUILD]: https://github.com/acheronfail/i3-plasma/blob/master/resources/PKGBUILD
+[PKGBUILD]: https://github.com/acheronfail/i3-plasma-integration/blob/master/resources/PKGBUILD

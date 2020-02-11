@@ -1,4 +1,4 @@
-# Builds and run i3-plasma while watching for file changes.
+# Builds and run i3-plasma-integration while watching for file changes.
 watch:
 	cargo watch -s 'cargo run'
 
