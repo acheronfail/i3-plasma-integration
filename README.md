@@ -19,11 +19,11 @@ Download the `.deb` package from the [releases] page and run:
 sudo dpkg -i path/to/package.deb
 ```
 
-<!-- TODO: AUR repository for Arch
 ### On Arch
 
-You can install _i3-plasma_ via this AUR: 
--->
+Once https://github.com/tmerr/i3ipc-rs/pull/52 is resolved and a new version of `i3` is published, then the [PKGBUILD] will be added to AUR. Until then, you can use the [PKGBUILD] contained in this repository.
+
+<!-- TODO: post to https://www.reddit.com/r/i3wm/comments/bw1yfs/kde_notifications_appearing_in_the_centre_of/ ? -->
 
 <!-- TODO: wait for https://github.com/tmerr/i3ipc-rs/pull/52 then publish to crates
 ### From source
@@ -45,3 +45,4 @@ exec i3-plasma
 
 [releases]: https://github.com/acheronfail/i3-plasma/releases
 [cargo]: https://github.com/rust-lang/cargo
+[PKGBUILD]: https://github.com/acheronfail/i3-plasma/blob/master/resources/PKGBUILD

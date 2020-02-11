@@ -1,0 +1,36 @@
+# Maintainer: Callum Oz <acheronfail@gmail.com>
+pkgname=i3-plasma
+pkgver=0.1.0
+pkgrel=1
+depends=('i3-wm')
+makedepends=('cargo')
+arch=('i686' 'x86_64')
+pkgdesc="An IPC addon for i3 to integrate it better with plasma"
+url="https://github.com/acheronfail/i3-plasma"
+license=('MIT' 'Apache-2.0' 'UNLICENSE')
+
+source=("$pkgname-$pkgver.tar.gz::https://github.com/acheronfail/$pkgname/archive/v$pkgver.tar.gz")
+sha512sums=('6df8379571b0d0dc3882422de855a45cc2cc39bdba5a4c141624c1a68ec1f0774b1f8b4185117d7eca6f974dd25277145acc554edd1df6652c805b6d77219c67')
+
+build() {
+  cd "$pkgname-$pkgver"
+
+  cargo build --release --locked --all-features
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+
+  install -Dm755 "target/release/$pkgname" "$pkgdir/usr/bin/$pkgname"
+
+  install -Dm644 "target/release/build/$pkgname-"*/out/_"$pkgname" "$pkgdir/usr/share/zsh/site-functions/_$pkgname"
+  install -Dm644 "target/release/build/$pkgname-"*/out/"$pkgname".bash "$pkgdir/usr/share/bash-completion/completions/$pkgname"
+  install -Dm644 "target/release/build/$pkgname-"*/out/"$pkgname".fish "$pkgdir/usr/share/fish/vendor_completions.d/$pkgname.fish"
+
+  install -Dm644 "doc/${pkgname}.1" "$pkgdir/usr/share/man/man1/${pkgname}.1"
+  install -Dm644 "README.md" "$pkgdir/usr/share/doc/${pkgname}/README.md"
+
+  install -Dm644 "LICENSE-MIT" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE-MIT"
+  install -Dm644 "LICENSE-APACHE" "$pkgdir/usr/share/licenses/${pkgname}/APACHE"
+  install -Dm644 "LICENSE-UNLICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE-UNLICENSE"
+}
