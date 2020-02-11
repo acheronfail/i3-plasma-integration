@@ -1,7 +1,8 @@
 # Maintainer: Callum Oz <acheronfail@gmail.com>
 pkgname=i3-plasma-integration
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
+# TODO depend on version >= 4.18
 depends=('i3-wm')
 makedepends=('cargo')
 arch=('i686' 'x86_64')
@@ -10,7 +11,7 @@ url="https://github.com/acheronfail/$pkgname"
 license=('MIT' 'Apache' 'custom')
 
 source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
-sha512sums=('6df8379571b0d0dc3882422de855a45cc2cc39bdba5a4c141624c1a68ec1f0774b1f8b4185117d7eca6f974dd25277145acc554edd1df6652c805b6d77219c67')
+sha512sums=('8989eda337aa1c2c1d1f49e653c43a6a44d9dca266582c6b11d174455a1cd5deb15430afd54203d48a76374686c5dd2603dbede425a829c04c02bf61042c8fbf')
 
 build() {
   cd "$pkgname-$pkgver"
