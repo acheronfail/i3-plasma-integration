@@ -1,3 +1,17 @@
+env:
+  global:
+    # Used in the deploy steps below.
+    - PROJECT_NAME="i3-plasma-integration"
+    # Default target on travis-ci.
+    # Used as conditional check in the install stage
+    - HOST="x86_64-unknown-linux-gnu"
+
+addons:
+  homebrew:
+    update: true
+    packages:
+      - jq
+
 language: rust
 cache: cargo
 matrix:
@@ -45,14 +59,6 @@ sudo: required
 
 before_install:
   - ci/before_install.sh
-
-env:
-  global:
-    # Used in the deploy steps below.
-    - PROJECT_NAME="i3-plasma-integration"
-    # Default target on travis-ci.
-    # Used as conditional check in the install stage
-    - HOST="x86_64-unknown-linux-gnu"
 
 install:
   # prevent target re-add error from rustup
