@@ -10,6 +10,9 @@ readme = "README.md"
 homepage = "https://github.com/acheronfail/i3-plasma-integration"
 repository = "https://github.com/acheronfail/i3-plasma-integration"
 
+[package.metadata]
+depends = "i3 (>= 4.18)"
+
 [build-dependencies]
 clap = "2.31.2"
 
