@@ -2,7 +2,7 @@
 name = "i3-plasma-integration"
 description = "An IPC addon for i3 to integrate it better with plasma"
 version = "0.2.2"
-build = "ci/build-clap-v2.rs"
+build = "build.rs"
 authors = ["Callum Oz <acheronfail@gmail.com>"]
 edition = "2018"
 license = "MIT/Apache-2.0/UNLICENSE"
