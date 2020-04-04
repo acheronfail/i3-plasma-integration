@@ -1,7 +1,7 @@
 [package]
 name = "i3-plasma-integration"
 description = "An IPC addon for i3 to integrate it better with plasma"
-version = "0.2.2"
+version = "0.2.3"
 build = "build.rs"
 authors = ["Callum Oz <acheronfail@gmail.com>"]
 edition = "2018"
