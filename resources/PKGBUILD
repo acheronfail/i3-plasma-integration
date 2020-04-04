@@ -1,21 +1,31 @@
 # Maintainer: Callum Oz <acheronfail@gmail.com>
 pkgname=i3-plasma-integration
-pkgver=0.2.0
+pkgver=0.2.3
 pkgrel=1
-# TODO depend on version >= 4.18
-depends=('i3-wm')
+depends=('i3-wm>=4.18')
 makedepends=('cargo')
 arch=('i686' 'x86_64')
 pkgdesc="An IPC addon for i3 to integrate it better with plasma"
 url="https://github.com/acheronfail/$pkgname"
 license=('MIT' 'Apache' 'custom')
 
-source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
-sha512sums=('8989eda337aa1c2c1d1f49e653c43a6a44d9dca266582c6b11d174455a1cd5deb15430afd54203d48a76374686c5dd2603dbede425a829c04c02bf61042c8fbf')
+source=(
+  "$pkgname-$pkgver.tar.gz::$url/archive/$pkgver.tar.gz"
+  "travis-rs.tar.gz::https://github.com/acheronfail/travis-rs/archive/fae1f716be8732dc3948365601461c920b8ade17.tar.gz"
+)
+sha512sums=(
+  '6dfef573de8fce6fc2e1db15363792d28a5ae94a247b473cb6e06f474148768db7fd72a2a3a18e2fc4a753b7e1dfb7381639a18443696cba4c66c3544395fe11'
+  'fba6ab2220220b10769c04f35f5e2b4fb3305d2813de2307eb28e0a10d8d1c6e8f0793f5d0ff25fb7e07af8c43074aba47ae09ac83e5f5799d8d1b1b1ead0c96'
+)
 
 build() {
   cd "$pkgname-$pkgver"
 
+  # Since GitHub doesn't package submodules in the source file, copy the travis-rs submodule in.
+  rm -r ci
+  mv ../travis-rs-fae1f716be8732dc3948365601461c920b8ade17 ci
+
+  # Build the project.
   cargo build --release --locked --all-features
 }
 
@@ -31,7 +41,7 @@ package() {
   install -Dm644 "doc/${pkgname}.1" "$pkgdir/usr/share/man/man1/${pkgname}.1"
   install -Dm644 "README.md" "$pkgdir/usr/share/doc/${pkgname}/README.md"
 
-  install -Dm644 "LICENSE-MIT" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE-MIT"
-  install -Dm644 "LICENSE-APACHE" "$pkgdir/usr/share/licenses/${pkgname}/APACHE"
-  install -Dm644 "LICENSE-UNLICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE-UNLICENSE"
+  install -Dm644 "ci/LICENSE-MIT" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE-MIT"
+  install -Dm644 "ci/LICENSE-APACHE" "$pkgdir/usr/share/licenses/${pkgname}/APACHE"
+  install -Dm644 "ci/LICENSE-UNLICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE-UNLICENSE"
 }
